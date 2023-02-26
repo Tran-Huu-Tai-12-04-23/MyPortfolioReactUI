@@ -1,0 +1,103 @@
+:root {
+    // theme default
+    --bg-primary-theme-default: #fff;
+    --bg-secondary-theme-default: rgba(0, 0, 0, 1);
+    --bg-third-theme-default: rgba(0, 0, 0, 01);
+    --bt-primary-theme-default: rgba(255, 255, 255, 0.2);
+    --bd-theme-default: #ff0032;
+    --cl-text-theme-default: #fff;
+    --cl-text-secondary-theme-default: rgba(255, 255, 255, 0.6);
+    // theme 1
+    --bg-primary-theme-1: #161c20;
+    --bg-secondary-theme-1: rgba(46, 51, 55, 0.2);
+    --bg-third-theme-1: rgba(91, 83, 164, 0.4);
+    --bt-primary-theme-1: rgb(91, 83, 164);
+    --bd-theme-1: #ff0032;
+    --cl-text-theme-1: #fff;
+    --cl-text-secondary-theme-1: rgba(255, 255, 255, 0.6);
+
+    // theme 2
+    --bg-primary-theme-2: #161c20;
+    --bg-secondary-theme-2: rgba(55, 116, 88, 0.1);
+    --bg-third-theme-2: rgba(55, 116, 88, 0.2);
+    --bt-primary-theme-2: rgb(55, 116, 88);
+    --bd-theme-3: #ff0032;
+    --cl-text-theme-2: #fff;
+    --cl-text-secondary-theme-2: rgba(255, 255, 255, 0.6);
+
+    // theme 3
+    --bg-primary-theme-3: #161c20;
+    --bg-secondary-theme-3: rgba(203, 60, 29, 0.1);
+    --bg-third-theme-3: rgba(203, 60, 29, 0.2);
+    --bt-primary-theme-3: rgb(203, 60, 29);
+    --bd-theme-3: #ff0032;
+    --cl-text-theme-3: #fff;
+    --cl-text-secondary-theme-3: rgba(255, 255, 255, 0.6);
+
+    // theme 4
+    --bg-primary-theme-4: #fff;
+    --bg-secondary-theme-4: rgba(131, 141, 222, 0.2);
+    --bg-third-theme-4: rgba(131, 141, 222, 0.4);
+    --bt-primary-theme-4: #780f73;
+    --bd-theme-4: #ff0032;
+    --cl-text-theme-4: #000;
+    --cl-text-secondary-theme-4: rgba(0, 0, 0, 0.6);
+
+    // theme 5
+    --bg-primary-theme-5: #e7faf7;
+    --bg-secondary-theme-5: rgba(111, 73, 146, 0.2);
+    --bg-third-theme-5: rgba(111, 73, 146, 0.4);
+    --bt-primary-theme-5: #e7e2ed;
+    --bd-theme-5: #ff0032;
+    --cl-text-theme-5: #000;
+    --cl-text-secondary-theme-5: rgba(0, 0, 0, 0.6);
+
+    // theme 6
+    --bg-primary-theme-6: #fcffe7;
+    --bg-secondary-theme-6: rgba(43, 52, 103, 0.2);
+    --bg-third-theme-6: rgba(43, 52, 103, 0.4);
+    --bt-primary-theme-6: #bad7e9;
+    --bd-theme-6: #ff0032;
+    --cl-text-theme-6: #000;
+    --cl-text-secondary-theme-6: rgba(0, 0, 0, 0.6);
+
+    --bt-normal: rgba(0, 0, 0, 0.5);
+    --bt-primary: #1f8a70;
+    --bt-success: #1f8a70;
+    --bt-danger: #ff0032;
+
+    --bg-header: rgba(15, 33, 55, 0.6);
+
+    --header-height: 4rem;
+    --bd-primary: 0.8rem;
+}
+
+//
+.active_flex {
+    display: flex;
+}
+.active_block {
+    display: block;
+}
+// hidden
+.hidden {
+    display: none !important;
+}
+@keyframes heartBeat {
+    from {
+        scale: (0.8);
+    }
+    to {
+        scale: (1);
+    }
+}
+@keyframes showMenuUp {
+    from {
+        opacity: 0;
+        transform: translate(50%, 50%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0);
+    }
+}

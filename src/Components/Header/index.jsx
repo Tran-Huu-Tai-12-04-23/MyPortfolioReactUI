@@ -1,6 +1,6 @@
 import { v4 as uuid } from "uuid";
 import { Link } from "react-router-dom";
-import { useState, useContext, memo } from "react";
+import { useState, useContext, memo, useEffect } from "react";
 import "./style.scss";
 import { Button } from "@mui/material";
 import { Slide, Roll, Flip } from "react-awesome-reveal";
@@ -83,6 +83,7 @@ const Header = ({ setModalDetailMe }) => {
             id: uuid(),
         },
     ]);
+
     const [active, setActive] = useState(0);
     const renderService = () => {
         return myService.map((ser, index) => {
@@ -108,6 +109,7 @@ const Header = ({ setModalDetailMe }) => {
                         variant='text'
                         onClick={(e) => {
                             e.stopPropagation();
+                            window.scrollTo(0, index * 1000);
                             setActive(index);
                         }}
                     >
@@ -141,14 +143,33 @@ const Header = ({ setModalDetailMe }) => {
             );
         });
     };
+    const handleScroll = (e) => {
+        if (window.scrollY < 600) {
+            setActive(0);
+        } else if (window.scrollY >= 600) {
+            setActive(1);
+        } else if (window.scrollY >= 1200) {
+            setActive(2);
+        } else if (window.scrollY >= 1800) {
+            setActive(3);
+        }
+    };
+    useEffect(() => {
+        handleScroll();
+    }, []);
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
     return (
         <div
-            className='wrapper_header position-static p-5'
+            className='wrapper_header position-fixed  p-5 col-lg-2'
             style={{
                 top: 0,
                 left: 0,
                 bottom: 0,
-                width: "100%",
                 height: "100vh",
                 backgroundColor: `var( --bg-secondary-theme-${Theme})`,
                 backdropFilter: "blur(1rem)",
@@ -192,10 +213,9 @@ const Header = ({ setModalDetailMe }) => {
                                 border: `1px solid var(--bt-primary-theme-${Theme})`,
                                 animation:
                                     "heartBeat .5s ease infinite alternate",
-
                             }}
-                            onClick={ e => {
-                                setModalDetailMe(true)
+                            onClick={(e) => {
+                                setModalDetailMe(true);
                             }}
                         >
                             <Roll triggerOnce={true} direction='up'>

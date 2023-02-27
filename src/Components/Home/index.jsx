@@ -24,7 +24,7 @@ const Home = ({ setModalDetailMe }) => {
             }}
         >
             <div className='container-fluid'>
-                <div className='row p-5 d-flex flex-justify-content-center align-items-center position-relative'>
+                <div className='row d-flex flex-justify-content-center align-items-center position-relative'>
                     <div className='col-lg-6 col-xl-6 '>
                         <div
                             className='typed-animation d-flex flex-column '
@@ -44,6 +44,9 @@ const Home = ({ setModalDetailMe }) => {
                                         className='typed-out'
                                         style={{
                                             color: `var(--bt-primary-theme-${Theme})`,
+                                            animation: ` typing 8s steps(${
+                                                "I'm Huu Tai".length
+                                            }) infinite, blinking 1s infinite`,
                                         }}
                                     >
                                         I'm Huu Tai
@@ -56,6 +59,10 @@ const Home = ({ setModalDetailMe }) => {
                                     style={{
                                         fontSize: "1.8rem",
                                         color: `var(--cl-text-theme-${Theme})`,
+                                        animation: ` typing 8s steps(${
+                                            "Hello! I'm glad you took some time to visit my website"
+                                                .length
+                                        }) infinite, blinking 1s infinite`,
                                     }}
                                 >
                                     Hello! I'm glad you took some time to visit

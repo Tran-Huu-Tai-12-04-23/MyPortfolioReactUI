@@ -4,16 +4,31 @@
     backdrop-filter: blur(1rem);
 }
 
-.typed-animation {
-    display: inline-block;
-}
-
 .typed-out {
     overflow: hidden;
     white-space: nowrap;
     border-right: 0.25rem solid #fff;
     font-size: 3rem;
     font-weight: 700;
+    animation: typing 10s steps(40) infinite, blinking, 1s infinite;
+}
+
+@keyframes trans {
+    0% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-4rem);
+    }
+    50% {
+        transform: translateY(-8rem);
+    }
+    75% {
+        transform: translateY(-12rem);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 
 @keyframes typing {
@@ -38,25 +53,6 @@
         border-color: #fff;
     }
 }
-
-@keyframes trans {
-    0% {
-        transform: translateY(0);
-    }
-    25% {
-        transform: translateY(-4rem);
-    }
-    50% {
-        transform: translateY(-8rem);
-    }
-    75% {
-        transform: translateY(-12rem);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
-
 .avatar {
     border-top-right-radius: 4rem;
     border-bottom-left-radius: 4rem;

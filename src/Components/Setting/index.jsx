@@ -12,7 +12,7 @@ import {
     MdOutlineKeyboardArrowLeft,
 } from "react-icons/md";
 
-const Setting = () => {
+const Setting = ({ setAlerts, alertss }) => {
     const [Theme, setTheme] = useContext(ThemeApp);
     const [menu, setMenu] = useState(false);
     const [darkThemes, setDarkTheme] = useState([
@@ -64,6 +64,30 @@ const Setting = () => {
                     }}
                     onClick={(e) => {
                         setTheme(darkTheme.theme);
+                        if (Theme !== darkTheme.theme) {
+                            setAlerts((prev) => {
+                                return [
+                                    ...prev,
+                                    {
+                                        id: uuid(),
+                                        type: "success",
+                                        message: "Change Dark Theme!!",
+                                    },
+                                ];
+                            });
+                        } else {
+                            setAlerts((prev) => {
+                                return [
+                                    ...prev,
+                                    {
+                                        id: uuid(),
+                                        type: "warn",
+                                        message:
+                                            "Choose Same Theme Successfully!!",
+                                    },
+                                ];
+                            });
+                        }
                     }}
                 >
                     <div
@@ -87,7 +111,7 @@ const Setting = () => {
         });
     };
     const renderLightTheme = () => {
-        return lightTheme.map((darkTheme) => {
+        return lightTheme.map((lightTheme) => {
             return (
                 <Button
                     className='d-flex justify-content-center align-items-center'
@@ -99,7 +123,31 @@ const Setting = () => {
                         overflow: "hidden",
                     }}
                     onClick={(e) => {
-                        setTheme(darkTheme.theme);
+                        setTheme(lightTheme.theme);
+                        if (Theme !== lightTheme.theme) {
+                            setAlerts((prev) => {
+                                return [
+                                    ...prev,
+                                    {
+                                        id: uuid(),
+                                        type: "success",
+                                        message:
+                                            "Change Light Theme Successfully!!",
+                                    },
+                                ];
+                            });
+                        } else {
+                            setAlerts((prev) => {
+                                return [
+                                    ...prev,
+                                    {
+                                        id: uuid(),
+                                        type: "warn",
+                                        message: "Choose Same Theme!!",
+                                    },
+                                ];
+                            });
+                        }
                     }}
                 >
                     <div
@@ -107,7 +155,7 @@ const Setting = () => {
                         style={{
                             borderTopLeftRadius: "var(--bd-primary)",
                             borderBottomLeftRadius: "var(--bd-primary)",
-                            backgroundColor: darkTheme.primaryColor,
+                            backgroundColor: lightTheme.primaryColor,
                         }}
                     ></div>
                     <div
@@ -115,7 +163,7 @@ const Setting = () => {
                         style={{
                             borderTopRightRadius: "var(--bd-primary)",
                             borderBottomRightRadius: "var(--bd-primary)",
-                            backgroundColor: darkTheme.secondaryColor,
+                            backgroundColor: lightTheme.secondaryColor,
                         }}
                     ></div>
                 </Button>
@@ -256,6 +304,17 @@ const Setting = () => {
                                 }}
                                 onClick={(e) => {
                                     setTheme("default");
+                                    setAlerts((prev) => {
+                                        return [
+                                            ...prev,
+                                            {
+                                                id: uuid(),
+                                                type: "success",
+                                                message:
+                                                    "Change Default Theme Successfully!!",
+                                            },
+                                        ];
+                                    });
                                 }}
                             >
                                 <div

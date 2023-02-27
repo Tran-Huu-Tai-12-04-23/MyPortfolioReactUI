@@ -11,7 +11,7 @@ import { BsGithub } from "react-icons/bs";
 import { ThemeApp } from "../../Context";
 
 import my_logo from "../../assets/image/my_logo.png";
-const Header = () => {
+const Header = ({ setModalDetailMe }) => {
     const [Theme, setTheme] = useContext(ThemeApp);
     const [myService, setMyService] = useState([
         {
@@ -192,6 +192,10 @@ const Header = () => {
                                 border: `1px solid var(--bt-primary-theme-${Theme})`,
                                 animation:
                                     "heartBeat .5s ease infinite alternate",
+
+                            }}
+                            onClick={ e => {
+                                setModalDetailMe(true)
                             }}
                         >
                             <Roll triggerOnce={true} direction='up'>

@@ -1,0 +1,87 @@
+.button {
+    --body-bg: red;
+    --btn-gradient: var(--primary_color);
+    --btn-txt-color: #ffffff;
+    position: relative;
+    border: none;
+    outline: none;
+    display: block;
+    overflow: hidden;
+    padding: 0.6rem;
+    background: var(--btn-gradient);
+}
+
+.btn-animation {
+    border-radius: 5px;
+}
+
+.btn-animation:hover {
+    cursor: pointer;
+}
+
+.btn-animation span {
+    display: block;
+}
+
+.btn-animation span:nth-child(1) {
+    padding: 2rem 6.5rem;
+    border-radius: 5px;
+}
+
+.btn-animation span:nth-child(2),
+.btn-animation span:nth-child(3),
+.btn-animation span:nth-child(4) {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.btn-animation span:nth-child(4) {
+    width: calc(100% - 16px);
+    height: calc(100% - 16px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary_color);
+    color: var(--btn-txt-color);
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    border-radius: 1px;
+    padding: 1rem;
+    border-radius: 0.6rem;
+}
+
+.btn-animation:hover span:nth-child(4) {
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+}
+
+.btn-animation span:nth-child(3) {
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(1rem);
+    padding: 1rem;
+}
+
+.btn-animation span:nth-child(2) {
+    height: 60%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 1);
+    animation: rotate 2s linear infinite;
+    overflow: hidden;
+}
+
+@keyframes rotate {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(180deg);
+    }
+}

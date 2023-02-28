@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { Button } from "@mui/material";
 import { v4 as uuid } from "uuid";
 import { Slide } from "react-awesome-reveal";
+import "./style.scss";
 
 import { AiOutlineSetting } from "react-icons/ai";
 import Menu from "../Menu";
@@ -184,7 +185,7 @@ const Setting = ({ setAlerts, alertss }) => {
                 <Button
                     variant='text'
                     className='setting rounded-circle d-flex justify-content-center align-items-center 
-            '
+                    fade-loading'
                     id='setting'
                     style={{
                         zIndex: 3,

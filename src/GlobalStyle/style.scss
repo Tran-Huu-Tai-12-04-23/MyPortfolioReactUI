@@ -83,6 +83,7 @@
 .hidden {
     display: none !important;
 }
+
 @keyframes heartBeat {
     from {
         scale: (0.8);
@@ -132,6 +133,14 @@
         display: none;
     }
 }
+.hover_bd:hover {
+    border-color: var(--bd-cl) !important;
+}
+.hover_bg:hover {
+    background: var(--bg-cl) !important;
+    transition: 0.4s;
+}
+
 .animation_alert {
     animation: alert 1s cubic-bezier(0.14, 0.26, 0.67, 1.63);
     @keyframes alert {

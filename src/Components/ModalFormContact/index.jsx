@@ -152,24 +152,23 @@ const ModalFormContact = ({
                                 </div>
                             </Button>
                             <Button
-                                className='button btn-animation '
+                                className='hover_bg'
                                 style={{
-                                    "--body-bg": `var(--bt-primary-theme-${Theme})`,
-                                    "--primary_color": `var(--bt-primary-theme-${Theme})`,
-                                    "--bg": `var(--bg-third-theme-${Theme})`,
+                                    background: `var(--bt-primary-theme-${Theme})`,
                                     border: `1px solid var(--bt-primary-theme-${Theme}`,
                                     borderRadius: ".8rem",
-                                    height: "5rem",
+                                    height: "4rem",
+                                    minWidth: "10rem",
+                                    color: "#fff",
+                                    fontSize: "1.4rem",
+                                    "--bg-cl": `var(--bg-third-theme-${Theme})`,
                                 }}
                                 onClick={(e) => {
                                     e.stopPropagation();
                                     setModalContact(!modalContact);
                                 }}
                             >
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span>Hire Me</span>
+                                Hire Me
                             </Button>
                         </div>
                         <Button

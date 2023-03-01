@@ -180,6 +180,7 @@ const Setting = ({ setAlerts, alertss }) => {
                 style={{
                     bottom: "2rem",
                     right: "2rem",
+                    zIndex: 10,
                 }}
             >
                 <Button
@@ -197,7 +198,6 @@ const Setting = ({ setAlerts, alertss }) => {
                         backdropFilter: "blur(.2rem)",
                     }}
                     onClick={(e) => {
-                        e.stopPropagation();
                         setMenu(!menu);
                     }}
                 >
@@ -206,6 +206,10 @@ const Setting = ({ setAlerts, alertss }) => {
                             color: "#ffff",
                             fontSize: "3rem",
                             animation: "heartBeat .5s ease infinite alternate",
+                            cursor: "pointer",
+                        }}
+                        onClick={(e) => {
+                            setMenu(!menu);
                         }}
                     />
                 </Button>

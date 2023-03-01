@@ -5,9 +5,6 @@ import "./style.scss";
 import { Button } from "@mui/material";
 import { Slide, Roll, Flip } from "react-awesome-reveal";
 
-import { FaFacebookSquare, FaThemeco, FaTiktok } from "react-icons/fa";
-import { AiOutlineInstagram } from "react-icons/ai";
-import { BsGithub } from "react-icons/bs";
 import { ThemeApp } from "../../Context";
 
 import my_logo from "../../assets/image/my_logo.png";
@@ -57,32 +54,6 @@ const Header = ({ setModalDetailMe }) => {
             des: "",
         },
     ]);
-    const [social, setSocial] = useState([
-        {
-            name: "Facebook",
-            icon: <FaFacebookSquare />,
-            link: "https://www.facebook.com/profile.php?id=100037828690010",
-            id: uuid(),
-        },
-        {
-            name: "TikTok",
-            icon: <FaTiktok />,
-            link: "",
-            id: uuid(),
-        },
-        {
-            name: "Instagram ",
-            icon: <AiOutlineInstagram />,
-            link: "",
-            id: uuid(),
-        },
-        {
-            name: "Git Hub",
-            icon: <BsGithub />,
-            link: "https://github.com/Tran-Huu-Tai-12-04-23",
-            id: uuid(),
-        },
-    ]);
 
     const [active, setActive] = useState(0);
     const renderService = () => {
@@ -119,30 +90,7 @@ const Header = ({ setModalDetailMe }) => {
             );
         });
     };
-    const renderSocial = () => {
-        return social.map((soc, index) => {
-            return (
-                <a
-                    key={soc.id}
-                    style={{
-                        fontSize: "3.5rem",
-                        color: `var(--bt-primary-theme-${Theme})`,
-                    }}
-                    target={"_blank"}
-                    href={soc.link}
-                >
-                    <Roll
-                        direction='up'
-                        triggerOnce={true}
-                        delay={index * 500}
-                        fraction={0}
-                    >
-                        {soc.icon}
-                    </Roll>
-                </a>
-            );
-        });
-    };
+
     const handleScroll = (e) => {
         if (window.scrollY < 600) {
             setActive(0);
@@ -211,8 +159,6 @@ const Header = ({ setModalDetailMe }) => {
                             style={{
                                 margin: "0 auto",
                                 border: `1px solid var(--bt-primary-theme-${Theme})`,
-                                animation:
-                                    "heartBeat .5s ease infinite alternate",
                             }}
                             onClick={(e) => {
                                 setModalDetailMe(true);
@@ -220,25 +166,40 @@ const Header = ({ setModalDetailMe }) => {
                         >
                             <Roll triggerOnce={true} direction='up'>
                                 <img
+                                    style={{
+                                        width: "4rem",
+                                        height: "12rem",
+                                    }}
                                     className='rounded-circle w-100'
-                                    src='https://scontent.fsgn5-3.fna.fbcdn.net/v/t39.30808-6/326957191_3354159448170060_8217260670468642730_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=IxN3wIURwqIAX91c-RM&_nc_ht=scontent.fsgn5-3.fna&oh=00_AfAFnUdS4qJh_lPVPuzVt4G0gF49qX-_HLEM_yBMnelHvQ&oe=63FFED56'
+                                    src='https://i.ibb.co/CzVCLmj/inbound7901888872878807321.png'
                                     alt="It's me"
                                 />
                             </Roll>
                         </Button>
                         <Button
-                            className='mt-5'
+                            className='mt-5 button btn-animation'
                             style={{
                                 fontSize: "1.4rem",
                                 height: "4rem",
                                 color: `var(--bt-primary-theme-${Theme})`,
+                                "--body-bg": `var(--bt-primary-theme-${Theme})`,
+                                "--primary_color": `var(--bt-primary-theme-${Theme})`,
+                                "--bg": `var(--bg-third-theme-${Theme})`,
+                                "--bg-secondary": `var(--bg-primary-theme-${Theme})`,
+                                border: `1px solid var(--bt-primary-theme-${Theme}`,
                             }}
                         >
-                            Follow Me
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span
+                                style={{
+                                    fontSize: "1.4rem",
+                                }}
+                            >
+                                My CV
+                            </span>
                         </Button>
-                        <div className='w-100 d-flex justify-content-between align-items-center mt-2 flex-wrap'>
-                            {renderSocial()}
-                        </div>
                     </div>
                 </div>
             </div>

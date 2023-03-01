@@ -1,16 +1,116 @@
 import { v4 as uuid } from "uuid";
-import { useState, useContext } from "react";
+import { useState, useContext, useRef } from "react";
 import "./style.scss";
 import { Button } from "@mui/material";
 import { ThemeApp } from "../../Context";
 
+import LottiePlayer from "@lottiefiles/lottie-player";
 import { Slide, Roll, Flip } from "react-awesome-reveal";
-
-import Home1 from "../../assets/image/Home1.jpg";
+import about from "../../assets/image/about.png";
 
 const About = ({ setModalDetailMe }) => {
     const [Theme, setTheme] = useContext(ThemeApp);
-
+    const [textAbout, setTextAbout] = useState([
+        {
+            text: "My name is Tran Huu Tai and I come from Binh Dinh, ",
+            tagOp: "<h1>",
+            tagCl: "</h1>",
+        },
+        {
+            text: "That is a beautiful coastal province in Vietnam.",
+            tagOp: "<h5>",
+            tagCl: "</h5>",
+        },
+        {
+            text: "I am currently a student at Ton Duc Thang University, ",
+            tagOp: "<h5>",
+            tagCl: "</h5>",
+        },
+        {
+            text: "Majoring in web design, game design, and other technology-related subjects.",
+            tagOp: "<h5>",
+            tagCl: "</h5>",
+        },
+        {
+            text: "I have a great passion for collecting tech gadgets ",
+            tagOp: "<h5>",
+            tagCl: "</h5>",
+        },
+        {
+            text: "And keeping up with the latest technological advancements.",
+            tagOp: "<h5>",
+            tagCl: "</h5>",
+        },
+        {
+            text: "I take great pride in my work and strive to complete tasks efficiently.",
+            tagOp: "<h5>",
+            tagCl: "</h5>",
+        },
+        {
+            text: "I enjoy communicating through code in seeing my work come to life.",
+            tagOp: "<h5>",
+            tagCl: "</h5>",
+        },
+        {
+            text: "I aspire to become a full-stack developer with a focus on creating innovative.",
+            tagOp: "<h5>",
+            tagCl: "</h5>",
+        },
+        {
+            text: "I am excited about the endless possibilities in the tech industry ",
+            tagOp: "<h6>",
+            tagCl: "</h6>",
+        },
+        {
+            text: "And am eager to continue learning and growing as a developer.",
+            tagOp: "<h6>",
+            tagCl: "</h6>",
+        },
+    ]);
+    const [xItem, setXItem] = useState("");
+    const [yItem, setYItem] = useState("");
+    const [opacity, setOpacity] = useState(0);
+    const zoom = useRef();
+    const handleMouseMoveImage = (e) => {
+        const xItem =
+            ((e.clientX - e.target.parentElement.getBoundingClientRect().left) /
+                e.target.parentElement.offsetWidth) *
+                100 +
+            "%";
+        setXItem(xItem);
+        const yItem =
+            ((e.clientY - e.target.parentElement.getBoundingClientRect().top) /
+                e.target.parentElement.offsetHeight) *
+                100 +
+            "%";
+        setYItem(yItem);
+        setOpacity(1);
+        // e.target.style.opacity = 1;
+    };
+    const handleMouseOutImage = (e) => {
+        // e.target.style.opacity = 0;
+        setOpacity(0);
+    };
+    const renderAbout = () => {
+        return textAbout.map((text, index) => {
+            return (
+                <h1
+                    key={uuid()}
+                    className='typed-out-2'
+                    style={{
+                        animation: `typing2 2s steps(${text.text.length})`,
+                        fontSize: "1.4rem",
+                        width: "unset",
+                        animationDelay: `${index * 2 + 0.1 * index}s`,
+                    }}
+                >
+                    <span>{text.tagOp}</span>
+                    {text.text}
+                    <span>{text.tagCl}</span>
+                </h1>
+            );
+        });
+    };
     return (
         <div
             className='wrapper_about'
@@ -20,186 +120,182 @@ const About = ({ setModalDetailMe }) => {
                 overflowX: "hidden",
             }}
         >
-            <Slide direction='up' triggerOnce={true}>
-                <div className='position-relative'>
-                    <h1
-                        style={{
-                            fontSize: "2rem",
-                            color: `var(--cl-text-theme-${Theme})`,
-                            marginBottom: "2rem",
-                        }}
-                    >
-                        About Me
-                    </h1>
-                    <div
-                        className=' position-absolute '
-                        style={{
-                            bottom: "-.4rem",
-                            left: 0,
-                            height: ".2rem",
-                            borderRadius: "1rem",
-                            width: "4rem",
-                            background: `linear-gradient(90deg, var(--bt-primary-theme-${Theme}) 59%, #fff 83%)`,
-                        }}
-                    ></div>
-                </div>
-            </Slide>
-            <Slide
-                direction='up'
-                triggerOnce={true}
-                style={{
-                    height: "48%",
-                    width: "48%",
-                }}
-            >
-                <div
-                    style={{
-                        height: "100%",
-                        width: "100%",
-                        backgroundColor: `var(--bg-third-theme-${Theme})`,
-                        borderRadius: "1rem",
-                        position: "relative",
-                        overflow: "hidden",
-                        padding: "1rem",
-                        boxShadow: `5px 3px 50px 5px var(--bg-third-theme-${Theme})`,
-                    }}
-                >
-                    <div
-                        className='nav_ios position-absolute'
-                        style={{
-                            height: "2rem",
-                            width: "50%",
-                            top: "1rem",
-                            left: "1rem",
-                        }}
-                    >
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                    <div className='list_number-line'>
-                        <div>1</div>
-                        <div>2</div>
-                        <div>3</div>
-                        <div>4</div>
-                        <div>5</div>
-                        <div>6</div>
-                        <div>7</div>
-                        <div>8</div>
-                        <div>9</div>
-                        <div>10</div>
-                        <div>11</div>
-                        <div>12</div>
-                        <div>13</div>
-                        <div>14</div>
-                        <div>15</div>
-                        <div>16</div>
-                        <div>17</div>
-                        <div>18</div>
-                    </div>
-                    <div className='text_about'>
-                        <div
-                            className='typed-animation-2'
+            <div className='container-fluid h-100'>
+                <div className='row h-100'>
+                    <div className='col-xl-6 col-lg-6 h-100 overflow-hidden'>
+                        <Slide direction='up' triggerOnce={true}>
+                            <div className='position-relative'>
+                                <h1
+                                    style={{
+                                        fontSize: "2rem",
+                                        color: `var(--cl-text-theme-${Theme})`,
+                                        marginBottom: "2rem",
+                                    }}
+                                >
+                                    About Me
+                                </h1>
+                                <div
+                                    className=' position-absolute '
+                                    style={{
+                                        bottom: "-.4rem",
+                                        left: 0,
+                                        height: ".2rem",
+                                        borderRadius: "1rem",
+                                        width: "4rem",
+                                        background: `linear-gradient(90deg, var(--bt-primary-theme-${Theme}) 59%, #fff 83%)`,
+                                    }}
+                                ></div>
+                            </div>
+                        </Slide>
+                        <Slide
+                            direction='up'
+                            triggerOnce={true}
                             style={{
-                                overflow: "hidden",
+                                height: "80%",
+                                width: "80%",
                             }}
                         >
-                            <h1
-                                className='typed-out-2'
+                            <div
                                 style={{
-                                    animation: `typing 2s steps(${
-                                        "<span><I'm Huu Tai</h1>".length
-                                    })`,
-                                    fontSize: "1.8rem",
+                                    height: "60%",
+                                    width: "100%",
+                                    backgroundColor: `var(--bg-third-theme-${Theme})`,
+                                    borderRadius: "1rem",
+                                    position: "relative",
+                                    overflow: "hidden",
+                                    padding: "1rem",
+                                    boxShadow: `5px 3px 10px 5px var(--bg-third-theme-${Theme})`,
                                 }}
                             >
-                                <span>{"<h1>"}</span>
-                                I'm Huu Tai
-                                <span>{"</h1>"}</span>
-                            </h1>
-                            <h1
-                                className='typed-out-2'
+                                <div
+                                    className='nav_ios position-absolute'
+                                    style={{
+                                        height: "2rem",
+                                        width: "50%",
+                                        top: "1rem",
+                                        left: "1rem",
+                                    }}
+                                >
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                                <div className='list_number-line'>
+                                    <div>1</div>
+                                    <div>2</div>
+                                    <div>3</div>
+                                    <div>4</div>
+                                    <div>5</div>
+                                    <div>6</div>
+                                    <div>7</div>
+                                    <div>8</div>
+                                    <div>9</div>
+                                    <div>10</div>
+                                    <div>11</div>
+                                    <div>12</div>
+                                    <div>13</div>
+                                    <div>14</div>
+                                    <div>15</div>
+                                    <div>16</div>
+                                    <div>17</div>
+                                    <div>18</div>
+                                </div>
+                                <div className='text_about'>
+                                    <div
+                                        className='typed-animation-2'
+                                        style={{
+                                            overflow: "hidden",
+                                            height: `${
+                                                textAbout.length * 3
+                                            }rem`,
+                                            "--sum-height": `${
+                                                textAbout.length * 3
+                                            }rem`,
+                                            animation: `jump ${
+                                                (textAbout.length - 1) * 2.1
+                                            }s steps(${textAbout.length - 1})`,
+                                        }}
+                                    >
+                                        {renderAbout()}
+                                    </div>
+                                </div>
+                            </div>
+                        </Slide>
+                    </div>
+                    <div className='col-lg-6 col-xl-6 d-flex align-items-center flex-wrap flex-column'>
+                        <Slide
+                            triggerOnce={true}
+                            direction={"right"}
+                            className='mb-5'
+                        >
+                            <div
+                                className='flex about-image'
                                 style={{
-                                    animation: `typing 2s steps(${
-                                        `<h5>I'm second year of university.</h5>`
-                                            .length
-                                    })`,
-                                    animationDelay: "2.1s",
+                                    border: `1px solid  var(--bt-primary-theme-${Theme})`,
+                                    marginTop: "5rem",
+                                    borderRadius: "50%",
+                                    height: "30rem",
+                                    width: "30rem",
+                                    overflow: "hidden",
                                 }}
                             >
-                                <span>{"<h5>"}</span>
-                                I'm second year of university.
-                                <span>{"</h5>"}</span>
-                            </h1>
-                            <h1
-                                className='typed-out-2'
+                                <img
+                                    className='img'
+                                    onMouseMove={handleMouseMoveImage}
+                                    onMouseOut={handleMouseOutImage}
+                                    src={about}
+                                    style={{
+                                        width: "100%",
+                                        height: "100%",
+                                        borderRadius: "1rem",
+                                        objectFit: "cover",
+                                        cursor: "pointer",
+                                        zIndex: 2,
+                                    }}
+                                ></img>
+                                <img
+                                    className='img-zoom'
+                                    src={about}
+                                    style={{
+                                        width: "100%",
+                                        height: "100%",
+                                        borderRadius: "1rem",
+                                        objectFit: "cover",
+                                        cursor: "pointer",
+                                        transform: "scale(2)",
+                                        width: "100%",
+                                        zIndex: 2,
+                                        opacity: opacity,
+                                        clipPath: `circle(6rem at ${xItem} ${yItem})`,
+                                    }}
+                                ></img>
+                            </div>
+                        </Slide>
+                        <Slide
+                            triggerOnce={true}
+                            direction='up'
+                            className='w-100 d-flex justify-content-center align-items-center mt-5'
+                            style={{}}
+                        >
+                            <Button
+                                className='hover_bg'
+                                variant='text'
                                 style={{
-                                    animation: `typing 2s steps(${
-                                        `<h5>I'm learning information technology at Ton Duc Thang
-                                    University.</h5>`.length
-                                    })`,
-                                    animationDelay: "4.2s",
-                                }}
-                            >
-                                <span>{"<h5>"}</span>
-                                I'm learning information technology at Ton Duc
-                                Thang University.
-                                <span>{"</h5>"}</span>
-                            </h1>
-                            <h1
-                                className='typed-out-2'
-                                style={{
+                                    color: `var(--cl-text-theme-${Theme})`,
+                                    border: `1px solid var(--bt-primary-theme-${Theme})`,
+                                    width: "15rem",
+                                    height: "4rem",
                                     fontSize: "1.4rem",
-                                    color: "#fff",
-                                    animation: `typing 2s steps(${
-                                        `<span>Mình thích viết Blog, làm video Youtube, Tiktok để
-                                    chia sẻ kiến thức.</span>`.length
-                                    })`,
-                                    animationDelay: "6.4s",
+                                    "--bg-cl": `var(--bg-third-theme-${Theme})`,
+                                    margin: "0 auto",
                                 }}
                             >
-                                <span>{`<span>`}</span>
-                                Mình thích viết Blog, làm video Youtube, Tiktok
-                                để chia sẻ kiến thức.
-                                <span>{`</span>`}</span>
-                            </h1>
-                            <h1
-                                className='typed-out-2'
-                                style={{
-                                    fontSize: "1.4rem",
-                                    color: "#fff",
-                                    animation: `typing 2s steps(${
-                                        `<span>Đặc biệt, mình còn có các khóa học về lập trình.</span>`
-                                            .length
-                                    })`,
-                                    animationDelay: "8.6s",
-                                }}
-                            >
-                                <span>{`<span>`}</span>
-                                Đặc biệt, mình còn có các khóa học về lập trình.
-                                <span>{`</span>`}</span>
-                            </h1>
-                            <h1
-                                className='typed-out-2'
-                                style={{
-                                    fontSize: "1.4rem",
-                                    color: "#fff",
-                                    animation: `typing 2s steps(${
-                                        `<span>Nếu bạn muốn trở thành lập trình viên Front-end thì
-                                    đừng ngại.</span>`.length
-                                    }`,
-                                    animationDelay: "10.8s",
-                                }}
-                            >
-                                <span>{`<span>`}</span>
-                                Nếu bạn muốn trở thành lập trình viên Front-end
-                                thì đừng ngại
-                                <span>{`</span>`}</span>
-                            </h1>
-                        </div>
+                                Read More
+                            </Button>
+                        </Slide>
                     </div>
                 </div>
-            </Slide>
+            </div>
         </div>
     );
 };

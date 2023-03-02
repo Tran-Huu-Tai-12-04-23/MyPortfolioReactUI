@@ -1,6 +1,6 @@
 import { v4 as uuid } from "uuid";
 import { Link } from "react-router-dom";
-import { useState, useContext, memo, useEffect } from "react";
+import { useState, useContext, memo, useEffect, useLayoutEffect } from "react";
 import "./style.scss";
 import { Button } from "@mui/material";
 import { Slide, Roll, Flip } from "react-awesome-reveal";
@@ -80,8 +80,7 @@ const Header = ({ setModalDetailMe }) => {
                         variant='text'
                         onClick={(e) => {
                             e.stopPropagation();
-                            window.scrollTo(0, index * 1000);
-                            setActive(index);
+                            window.scrollTo(0, index * 800);
                         }}
                     >
                         {ser.name}
@@ -92,17 +91,17 @@ const Header = ({ setModalDetailMe }) => {
     };
 
     const handleScroll = (e) => {
-        if (window.scrollY < 600) {
+        if (window.scrollY < 300) {
             setActive(0);
-        } else if (window.scrollY >= 600) {
+        } else if (window.scrollY >= 500 && window.scrollY < 1000) {
             setActive(1);
-        } else if (window.scrollY >= 1200) {
+        } else if (window.scrollY >= 1000 && window.scrollY < 1500) {
             setActive(2);
         } else if (window.scrollY >= 1800) {
             setActive(3);
         }
     };
-    useEffect(() => {
+    useLayoutEffect(() => {
         handleScroll();
     }, []);
     useEffect(() => {

@@ -1,5 +1,5 @@
 import { v4 as uuid } from "uuid";
-import { useState, useContext, useRef } from "react";
+import { useState, useContext, memo } from "react";
 import "./style.scss";
 import { Button } from "@mui/material";
 import { ThemeApp } from "../../Context";
@@ -67,29 +67,29 @@ const About = ({ setModalDetailMe }) => {
             tagCl: "</h6>",
         },
     ]);
-    const [xItem, setXItem] = useState("");
-    const [yItem, setYItem] = useState("");
-    const [opacity, setOpacity] = useState(0);
-    const zoom = useRef();
+
     const handleMouseMoveImage = (e) => {
         const xItem =
             ((e.clientX - e.target.parentElement.getBoundingClientRect().left) /
                 e.target.parentElement.offsetWidth) *
                 100 +
             "%";
-        setXItem(xItem);
         const yItem =
             ((e.clientY - e.target.parentElement.getBoundingClientRect().top) /
                 e.target.parentElement.offsetHeight) *
                 100 +
             "%";
-        setYItem(yItem);
-        setOpacity(1);
-        // e.target.style.opacity = 1;
+        e.target.parentElement
+            .querySelector("#zoom")
+            .style.setProperty("--x", xItem);
+        e.target.parentElement
+            .querySelector("#zoom")
+            .style.setProperty("--y", yItem);
+
+        e.target.parentElement.querySelector("#zoom").style.opacity = 1;
     };
     const handleMouseOutImage = (e) => {
-        // e.target.style.opacity = 0;
-        setOpacity(0);
+        e.target.parentElement.querySelector("#zoom").style.opacity = 0;
     };
     const renderAbout = () => {
         return textAbout.map((text, index) => {
@@ -122,7 +122,7 @@ const About = ({ setModalDetailMe }) => {
         >
             <div className='container-fluid h-100'>
                 <div className='row h-100'>
-                    <div className='col-xl-6 col-lg-6 h-100 overflow-hidden'>
+                    <div className='col-xl-6 col-lg-6 h-100 overflow-hidden  d-flex align-items-start flex-column justify-content-center'>
                         <Slide direction='up' triggerOnce={true}>
                             <div className='position-relative'>
                                 <h1
@@ -222,12 +222,13 @@ const About = ({ setModalDetailMe }) => {
                             </div>
                         </Slide>
                     </div>
-                    <div className='col-lg-6 col-xl-6 d-flex align-items-center flex-wrap flex-column'>
-                        <Slide
-                            triggerOnce={true}
-                            direction={"right"}
-                            className='mb-5'
-                        >
+                    <div
+                        className='col-lg-6 col-xl-6 d-flex align-items-center flex-wrap flex-column '
+                        style={{
+                            marginTop: "5%",
+                        }}
+                    >
+                        <Slide triggerOnce={true} direction={"right"}>
                             <div
                                 className='flex about-image'
                                 style={{
@@ -255,6 +256,7 @@ const About = ({ setModalDetailMe }) => {
                                 ></img>
                                 <img
                                     className='img-zoom'
+                                    id='zoom'
                                     src={about}
                                     style={{
                                         width: "100%",
@@ -265,8 +267,7 @@ const About = ({ setModalDetailMe }) => {
                                         transform: "scale(2)",
                                         width: "100%",
                                         zIndex: 2,
-                                        opacity: opacity,
-                                        clipPath: `circle(6rem at ${xItem} ${yItem})`,
+                                        clipPath: `circle(6rem at var(--x) var(--y))`,
                                     }}
                                 ></img>
                             </div>
@@ -299,4 +300,4 @@ const About = ({ setModalDetailMe }) => {
         </div>
     );
 };
-export default About;
+export default memo(About);

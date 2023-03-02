@@ -9,6 +9,7 @@ const Loader = ({ show = "false" }) => {
                 left: 0,
                 right: 0,
                 bottom: 0,
+                display: show ? "block" : "none",
             }}
         >
             <div

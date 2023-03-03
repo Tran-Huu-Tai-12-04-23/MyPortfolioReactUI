@@ -1,0 +1,9 @@
+.wrapper_card::-webkit-scrollbar {
+    display: none;
+}
+.wrapper_card:hover{
+    .hover {
+        transform: translateY(0)!important;
+        transition: .4s;
+    }
+}

@@ -141,6 +141,11 @@
     transition: 0.4s;
 }
 
+.hover_cl:hover {
+    color: var(--cl) !important;
+    transition: 0.4s;
+}
+
 .animation_alert {
     animation: alert 1s cubic-bezier(0.14, 0.26, 0.67, 1.63);
     @keyframes alert {

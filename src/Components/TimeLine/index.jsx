@@ -63,9 +63,13 @@ const TimeLine = ({}) => {
                     <div
                         style={{
                             fontSize: "1.4rem",
-                            color: `var(--cl-text-theme-${Theme})`,
                             marginLeft: "4rem",
                             minWidth: "5rem",
+                            color:
+                                timeActive === index
+                                    ? `var(--bt-primary-theme-${Theme})`
+                                    : `var(--cl-text-theme-${Theme})`,
+                            fontWeight: "bold",
                         }}
                     >
                         {time}

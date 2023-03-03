@@ -95,7 +95,7 @@ const Header = ({ setModalDetailMe }) => {
             setActive(0);
         } else if (window.scrollY >= 500 && window.scrollY < 1000) {
             setActive(1);
-        } else if (window.scrollY >= 1000 && window.scrollY < 1500) {
+        } else if (window.scrollY >= 1000 && window.scrollY < 1800) {
             setActive(2);
         } else if (window.scrollY >= 1800) {
             setActive(3);

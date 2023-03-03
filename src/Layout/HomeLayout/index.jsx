@@ -7,6 +7,7 @@ import ModalFormContact from "../../Components/ModalFormContact";
 import Alert from "../../Components/Alert";
 import About from "../../Components/About";
 import TimeLine from "../../Components/TimeLine";
+import Project from "../../Components/Project";
 
 import { ThemeApp } from "../../Context";
 
@@ -53,6 +54,7 @@ const HomeLayout = () => {
                             <Home setModalDetailMe={setModalDetailMe}></Home>
                             <About />
                             <TimeLine />
+                            <Project/>
                         </div>
                     </div>
                 </div>

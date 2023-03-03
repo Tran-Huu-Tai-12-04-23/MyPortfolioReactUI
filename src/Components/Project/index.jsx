@@ -40,11 +40,12 @@ const Project = ({}) => {
             );
         });
     };
+
     return (
         <div
             className='wrapper_project'
             style={{
-                height: "100vh",
+                minHeight: "60vh",
             }}
         >
             <div className='container-fluid'>

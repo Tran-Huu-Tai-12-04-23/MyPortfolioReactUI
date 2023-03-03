@@ -279,7 +279,7 @@ const About = ({ setModalDetailMe }) => {
                             style={{}}
                         >
                             <Button
-                                className='hover_bg'
+                                className='hover_bg d-flex justify-content-center align-items-center'
                                 variant='text'
                                 style={{
                                     color: `var(--cl-text-theme-${Theme})`,
@@ -288,7 +288,6 @@ const About = ({ setModalDetailMe }) => {
                                     height: "4rem",
                                     fontSize: "1.4rem",
                                     "--bg-cl": `var(--bg-third-theme-${Theme})`,
-                                    margin: "0 auto",
                                 }}
                             >
                                 Read More

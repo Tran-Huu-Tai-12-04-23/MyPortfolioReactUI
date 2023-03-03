@@ -8,6 +8,7 @@ import Alert from "../../Components/Alert";
 import About from "../../Components/About";
 import TimeLine from "../../Components/TimeLine";
 import Project from "../../Components/Project";
+import Skills from "../../Components/Skills";
 
 import { ThemeApp } from "../../Context";
 
@@ -54,7 +55,8 @@ const HomeLayout = () => {
                             <Home setModalDetailMe={setModalDetailMe}></Home>
                             <About />
                             <TimeLine />
-                            <Project/>
+                            <Project />
+                            <Skills />
                         </div>
                     </div>
                 </div>

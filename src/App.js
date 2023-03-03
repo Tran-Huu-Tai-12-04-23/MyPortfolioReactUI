@@ -24,7 +24,7 @@ function App() {
                     backgroundColor: `var(--bg-primary-theme-${Theme})`,
                 }}
             >
-                {/* <Loader show={loader} /> */}
+                {loader && <Loader show={loader} />}
                 {!loader && (
                     <ThemeApp.Provider value={[Theme, setTheme]}>
                         <HomeLayout />

@@ -7,17 +7,17 @@ import "./style.scss";
 import Card from "../Card";
 
 import { ThemeApp } from "../../Context";
+import img_pro_1 from "../../assets/project1/img_pro_1.png";
+import img_pro_1_2 from "../../assets/project1/img_pro_1_2.png";
+import img_pro_1_3 from "../../assets/project1/img_pro_1_3.png";
+import img_pro_1_4 from "../../assets/project1/img_pro_1_4.png";
 
 const Project = ({}) => {
     const [Theme, setTheme] = useContext(ThemeApp);
     const [projects, setProjects] = useState([
         {
-            name: "Web Economic",
-            linkImage: [
-                "https://st.quantrimang.com/photos/image/2019/05/10/img-html.gif",
-                "https://xuanthulab.net/images/post/the-img-chen-anh-vao-html-1143.jpg",
-                "https://www.iloveimg.com/img/homepage-product-2.png",
-            ],
+            name: "Web Tao Portfolio",
+            linkImage: [img_pro_1, img_pro_1_4, img_pro_1_3, img_pro_1_2],
             des: "Khi truy cập trang web, bạn sẽ thường xuyên thấy rất nhiều hình ảnh đủ mọi kích thước và vị trí trên trang. Hình ảnh trong trang web HTML sẽ giúp nội dung phong phú hơn cũng như tăng tính thẩm mỹ cho trang.",
         },
         {
@@ -34,7 +34,7 @@ const Project = ({}) => {
     const renderProject = () => {
         return projects.map((project) => {
             return (
-                <div className='col-lg-3 col-xl-3' key={uuid()}>
+                <div className='col-lg-4 col-xl-4 ' style={{}} key={uuid()}>
                     <Card linkImg={project.linkImage} des={project.des}></Card>
                 </div>
             );
@@ -45,7 +45,7 @@ const Project = ({}) => {
         <div
             className='wrapper_project'
             style={{
-                minHeight: "60vh",
+                minHeight: "60rem",
             }}
         >
             <div className='container-fluid'>

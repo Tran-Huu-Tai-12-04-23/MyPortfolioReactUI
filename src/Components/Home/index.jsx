@@ -194,7 +194,7 @@ const Home = ({ setModalDetailMe }) => {
                         </div>
                     </div>
                     <div
-                        className=' col-lg-4 col-xl-4 d-flex justify-content-center h-75 overflow-hidden'
+                        className=' col-lg-4 col-xl-4 d-flex justify-content-center h-75 '
                         style={{
                             transform: "scale(1.4)",
                             borderTopRightRadius: "4rem",
@@ -213,7 +213,6 @@ const Home = ({ setModalDetailMe }) => {
                             <div
                                 className='hexagon position-absolute'
                                 style={{
-                                    "--bg-cl": `var(--bg-third-theme-${Theme})`,
                                     bottom: "50%",
                                     transform: "translateY(50%)",
                                 }}

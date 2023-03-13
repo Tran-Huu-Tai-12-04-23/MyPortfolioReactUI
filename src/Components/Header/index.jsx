@@ -42,12 +42,6 @@ const Header = ({ setModalDetailMe }) => {
             des: "",
         },
         {
-            name: "My Hobbies",
-            data: "",
-            id: uuid(),
-            des: "",
-        },
-        {
             name: "The End",
             data: "",
             id: uuid(),
@@ -114,7 +108,7 @@ const Header = ({ setModalDetailMe }) => {
     }, []);
     return (
         <div
-            className='wrapper_header position-fixed  p-5 col-lg-2'
+            className='wrapper_header position-fixed  p-4 col-lg-2'
             style={{
                 top: 0,
                 left: 0,
@@ -127,18 +121,17 @@ const Header = ({ setModalDetailMe }) => {
         >
             <div className='container-fluid '>
                 <div className='row d-flex justify-content-center align-items-center flex-column'>
-                    <div className='col-lg-12 col-xl-12 mb-5 d-flex justify-content-center'>
+                    <div className='col-lg-12 col-xl-12 mb-2 d-flex justify-content-center'>
                         <Slide triggerOnce={true} direction='down' fraction={0}>
                             <img
                                 src={my_logo}
                                 style={{
-                                    height: "4rem",
                                     width: "10rem",
                                 }}
                             ></img>
                         </Slide>
                     </div>
-                    <div className='col-lg-12 relative col-xl-12 justify-content-end d-flex flex-column mb-5 position-relative'>
+                    <div className='col-lg-12 relative col-xl-12 justify-content-end d-flex flex-column mb-1 position-relative'>
                         {renderService()}
                         <div
                             className='action rounded position-absolute'
@@ -165,11 +158,18 @@ const Header = ({ setModalDetailMe }) => {
                                 setModalDetailMe(true);
                             }}
                         >
-                            <Roll triggerOnce={true} direction='up'>
+                            <Roll
+                                triggerOnce={true}
+                                direction='up'
+                                style={{
+                                    width: "100%",
+                                    height: "100%",
+                                }}
+                            >
                                 <img
                                     style={{
-                                        width: "4rem",
-                                        height: "12rem",
+                                        width: "100%",
+                                        height: "100%",
                                     }}
                                     className='rounded-circle w-100'
                                     src='https://i.ibb.co/CzVCLmj/inbound7901888872878807321.png'
@@ -178,7 +178,7 @@ const Header = ({ setModalDetailMe }) => {
                             </Roll>
                         </Button>
                         <Button
-                            className='mt-5 button btn-animation'
+                            className='mt-3 button btn-animation'
                             style={{
                                 fontSize: "1.4rem",
                                 height: "4rem",

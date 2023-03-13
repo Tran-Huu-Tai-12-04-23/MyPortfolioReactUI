@@ -10,6 +10,7 @@ import about from "../../assets/image/about.png";
 
 const About = ({ setModalDetailMe }) => {
     const [Theme, setTheme] = useContext(ThemeApp);
+    const [write, setWrite] = useState(true);
     const [textAbout, setTextAbout] = useState([
         {
             text: "My name is Tran Huu Tai and I come from Binh Dinh, ",
@@ -67,8 +68,8 @@ const About = ({ setModalDetailMe }) => {
             tagCl: "</h6>",
         },
     ]);
-
     const handleMouseMoveImage = (e) => {
+        setWrite(false);
         const xItem =
             ((e.clientX - e.target.parentElement.getBoundingClientRect().left) /
                 e.target.parentElement.offsetWidth) *
@@ -98,7 +99,9 @@ const About = ({ setModalDetailMe }) => {
                     key={uuid()}
                     className='typed-out-2'
                     style={{
-                        animation: `typing2 2s steps(${text.text.length})`,
+                        animation: write
+                            ? `typing2 2s steps(${text.text.length})`
+                            : "",
                         fontSize: "1.4rem",
                         width: "unset",
                         animationDelay: `${index * 2 + 0.1 * index}s`,
@@ -111,18 +114,19 @@ const About = ({ setModalDetailMe }) => {
             );
         });
     };
+    console.log(write);
     return (
         <div
             className='wrapper_about'
             style={{
-                height: "100vh",
+                height: "70rem",
                 width: "100%",
                 overflowX: "hidden",
             }}
         >
             <div className='container-fluid h-100'>
                 <div className='row h-100'>
-                    <div className='col-xl-6 col-lg-6 h-100 overflow-hidden  d-flex align-items-start flex-column justify-content-center'>
+                    <div className='col-xl-8 col-lg-8 h-100 overflow-hidden  d-flex align-items-start flex-column justify-content-center'>
                         <Slide direction='up' triggerOnce={true}>
                             <div className='position-relative'>
                                 <h1
@@ -159,6 +163,8 @@ const About = ({ setModalDetailMe }) => {
                                 style={{
                                     height: "60%",
                                     width: "100%",
+                                    minWidth: "60rem",
+                                    minHeight: "40rem",
                                     backgroundColor: `var(--bg-third-theme-${Theme})`,
                                     borderRadius: "1rem",
                                     position: "relative",
@@ -211,9 +217,14 @@ const About = ({ setModalDetailMe }) => {
                                             "--sum-height": `${
                                                 textAbout.length * 3
                                             }rem`,
-                                            animation: `jump ${
-                                                (textAbout.length - 1) * 2.1
-                                            }s steps(${textAbout.length - 1})`,
+                                            animation: write
+                                                ? `jump ${
+                                                      (textAbout.length - 1) *
+                                                      2.1
+                                                  }s steps(${
+                                                      textAbout.length - 1
+                                                  })`
+                                                : "",
                                         }}
                                     >
                                         {renderAbout()}
@@ -223,7 +234,7 @@ const About = ({ setModalDetailMe }) => {
                         </Slide>
                     </div>
                     <div
-                        className='col-lg-6 col-xl-6 d-flex align-items-center flex-wrap flex-column '
+                        className='col-lg-4 col-xl-4 d-flex align-items-center flex-wrap flex-column '
                         style={{
                             marginTop: "5%",
                         }}

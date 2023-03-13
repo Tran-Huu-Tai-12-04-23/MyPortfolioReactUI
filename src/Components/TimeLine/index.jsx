@@ -97,7 +97,6 @@ const TimeLine = ({}) => {
                 >
                     <div className='p-5'>
                         <h1
-                            className='w-100 '
                             style={{
                                 color: "#fff",
                             }}
@@ -119,6 +118,7 @@ const TimeLine = ({}) => {
                         style={{
                             height: "100%",
                             width: "80%",
+                            minWidth: "30rem",
                             overflow: "hidden",
                             cursor: "pointer",
                         }}
@@ -141,7 +141,7 @@ const TimeLine = ({}) => {
         <div
             className='wrapper_timeline'
             style={{
-                height: "60vh",
+                height: "70rem",
                 zIndex: "10",
             }}
         >

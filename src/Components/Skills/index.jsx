@@ -11,6 +11,7 @@ import Range from "../Range";
 import { IoLogoJavascript } from "react-icons/io5";
 import { FaBootstrap, FaReact, FaNodeJs } from "react-icons/fa";
 import { AiOutlineConsoleSql } from "react-icons/ai";
+import { FaPhp } from "react-icons/fa";
 
 const Skills = ({}) => {
     const [Theme, setTheme] = useContext(ThemeApp);
@@ -33,7 +34,7 @@ const Skills = ({}) => {
     return (
         <div
             style={{
-                minHeight: "60vh",
+                minHeight: "70rem",
             }}
         >
             <div className='container-fluid'>
@@ -212,6 +213,29 @@ const Skills = ({}) => {
                                 reload={reload}
                                 icon={
                                     <AiOutlineConsoleSql
+                                        style={{
+                                            fontSize: "3rem",
+                                            color: "#FDD36A",
+                                        }}
+                                    />
+                                }
+                            />
+                        </Slide>
+                    </div>
+                    <div
+                        className='col-12'
+                        style={{
+                            marginTop: "10rem",
+                        }}
+                    >
+                        <Slide triggerOnce={true} direction='up'>
+                            <Range
+                                rate={70}
+                                name={"PHP, MVC,My Sql, ..."}
+                                theme={Theme}
+                                reload={reload}
+                                icon={
+                                    <FaPhp
                                         style={{
                                             fontSize: "3rem",
                                             color: "#FDD36A",

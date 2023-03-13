@@ -100,7 +100,11 @@ const Card = ({ linkImg = [], des }) => {
                 </Button>
                 <div>
                     <MdOutlineArrowBackIosNew
-                        className='hover_cl'
+                        className={`${imgActive === 0 ? "hover_cl" : ""}`}
+                        style={{
+                            color:
+                                imgActive === 0 ? "rgba(255,255,255, .5)" : "",
+                        }}
                         onClick={(e) =>
                             setImgActive((prev) => {
                                 if (imgActive > 0) {
@@ -111,7 +115,15 @@ const Card = ({ linkImg = [], des }) => {
                         }
                     />
                     <MdOutlineArrowForwardIos
-                        className='hover_cl'
+                        className={`${
+                            imgActive === linkImg.length - 1 ? "hover_cl" : ""
+                        }`}
+                        style={{
+                            color:
+                                imgActive === linkImg.length - 1
+                                    ? "rgba(255,255,255, .5)"
+                                    : "",
+                        }}
                         onClick={(e) =>
                             setImgActive((prev) => {
                                 if (imgActive < linkImg.length - 1) {
